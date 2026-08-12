@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto | AEL Neuropsicología</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#164870; --light-blue:#A9C5D5; --terracota:#C9926B; --cream:#F3EEE6; --sand:#DCCDBD; --charcoal:#292C2F; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Manrope',sans-serif; color:var(--charcoal); background-color:var(--cream); line-height:1.65; }
+  h1,h2,h3 { font-family:'DM Serif Display',serif; font-weight:400; }
+  a { text-decoration:none; color:inherit; }
+  nav { position:fixed; top:0; width:100%; background-color:var(--cream); padding:18px 40px; display:flex; justify-content:space-between; align-items:center; z-index:100; box-shadow:0 1px 0 rgba(41,44,47,0.08); }
+  nav .logo { font-family:'DM Serif Display',serif; font-size:1.3rem; color:var(--navy); letter-spacing:1px; }
+  nav ul { list-style:none; display:flex; gap:26px; align-items:center; }
+  nav ul li a { font-size:0.85rem; font-weight:500; }
+  nav ul li a:hover { color:var(--terracota); }
+  nav .cta-nav { background-color:var(--terracota); color:#fff!important; padding:9px 18px; border-radius:30px; font-size:0.8rem; }
+  section { padding:80px 40px; }
+  .section-inner { max-width:900px; margin:0 auto; display:flex; gap:60px; flex-wrap:wrap; }
+  .info { flex:1; min-width:260px; }
+  .eyebrow-label { letter-spacing:2px; text-transform:uppercase; font-size:0.75rem; color:var(--terracota); font-weight:700; margin-bottom:12px; }
+  h1.page-title { font-size:2.2rem; color:var(--navy); margin-bottom:16px; }
+  .info p.desc { color:#4d5459; margin-bottom:30px; max-width:360px; }
+  .info-item { margin-bottom:16px; font-size:0.92rem; }
+  .info-item strong { display:block; color:var(--navy); font-size:0.8rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+  form { flex:1; min-width:280px; background-color:#fff; border:1px solid var(--sand); border-radius:14px; padding:32px; }
+  form label { display:block; font-size:0.82rem; font-weight:600; color:var(--navy); margin-bottom:6px; margin-top:16px; }
+  form label:first-child { margin-top:0; }
+  form input, form textarea { width:100%; padding:11px 14px; border-radius:8px; border:1px solid var(--sand); font-family:'Manrope',sans-serif; font-size:0.9rem; }
+  form textarea { min-height:100px; resize:vertical; }
+  form button { margin-top:22px; background-color:var(--terracota); color:#fff; border:none; padding:13px 26px; border-radius:30px; font-weight:600; cursor:pointer; font-family:'Manrope',sans-serif; width:100%; }
+  footer { padding:40px; text-align:center; font-size:0.8rem; color:#6b6259; }
+  @media (max-width:800px){ nav ul { display:none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">AEL</a>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="sobre-mi.html">Sobre mí</a></li>
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="recursos.html">Recursos</a></li>
+    <li><a href="comunidad.html">Nuestra comunidad</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="contacto.html" class="cta-nav">Pide tu cita</a></li>
+  </ul>
+</nav>
+
+<section style="padding-top:140px;">
+  <div class="section-inner">
+    <div class="info">
+      <p class="eyebrow-label">Contacto</p>
+      <h1 class="page-title">¿Hablamos?</h1>
+      <p class="desc">Estoy aquí para ayudarte. Cuéntame tu caso y valoraremos juntos cómo puedo acompañarte.</p>
+      <div class="info-item"><strong>Email</strong>info@anaesperanzalagares.com</div>
+      <div class="info-item"><strong>Ubicación</strong>Sevilla, España (consulta presencial y online)</div>
+      <div class="info-item"><strong>Instagram</strong>@anaes.neuropsico</div>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Formulario pendiente de conectar a un servicio de envío (ej. Formspree).');">
+      <label>Nombre</label>
+      <input type="text" required>
+      <label>Email</label>
+      <input type="email" required>
+      <label>Teléfono</label>
+      <input type="tel">
+      <label>Mensaje</label>
+      <textarea required></textarea>
+      <button type="submit">Enviar mensaje →</button>
+    </form>
+  </div>
+</section>
+
+<footer>AEL · Ana Esperanza Lagares — Neuropsicóloga · Sevilla, España</footer>
+</body>
+</html>
