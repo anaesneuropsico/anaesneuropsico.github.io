@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre mí | AEL Neuropsicología</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#164870; --light-blue:#A9C5D5; --terracota:#C9926B; --cream:#F3EEE6; --sand:#DCCDBD; --charcoal:#292C2F; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Manrope',sans-serif; color:var(--charcoal); background-color:var(--cream); line-height:1.65; }
+  h1,h2,h3 { font-family:'DM Serif Display',serif; font-weight:400; }
+  a { text-decoration:none; color:inherit; }
+  nav { position:fixed; top:0; width:100%; background-color:var(--cream); padding:18px 40px; display:flex; justify-content:space-between; align-items:center; z-index:100; box-shadow:0 1px 0 rgba(41,44,47,0.08); }
+  nav .logo { font-family:'DM Serif Display',serif; font-size:1.3rem; color:var(--navy); letter-spacing:1px; }
+  nav ul { list-style:none; display:flex; gap:26px; align-items:center; }
+  nav ul li a { font-size:0.85rem; font-weight:500; }
+  nav ul li a:hover { color:var(--terracota); }
+  nav .cta-nav { background-color:var(--terracota); color:#fff!important; padding:9px 18px; border-radius:30px; font-size:0.8rem; }
+  section { padding:90px 40px; }
+  .section-inner { max-width:900px; margin:0 auto; }
+  .eyebrow-label { letter-spacing:2px; text-transform:uppercase; font-size:0.75rem; color:var(--terracota); font-weight:700; margin-bottom:12px; }
+  h1.page-title { font-size:2.2rem; color:var(--navy); margin-bottom:30px; }
+  .photo-placeholder { width:100%; max-width:280px; aspect-ratio:4/5; background-color:var(--sand); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#6b6259; font-size:0.85rem; text-align:center; padding:20px; margin-bottom:36px; }
+  p.intro { max-width:640px; margin-bottom:40px; color:#4d5459; }
+  .cards-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; margin-bottom:20px; }
+  .card { background-color:#fff; border:1px solid var(--sand); border-radius:10px; padding:26px; }
+  .card .icon { width:42px; height:42px; background-color:var(--terracota); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:14px; color:#fff; }
+  .card h3 { font-size:1.02rem; color:var(--navy); margin-bottom:8px; }
+  .card p { font-size:0.88rem; color:#565d61; }
+  .closing { max-width:640px; margin-top:50px; font-style:italic; color:#4d5459; border-left:3px solid var(--terracota); padding-left:20px; }
+  footer { padding:40px; text-align:center; font-size:0.8rem; color:#6b6259; }
+  @media (max-width:800px){ nav ul { display:none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">AEL</a>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="sobre-mi.html">Sobre mí</a></li>
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="recursos.html">Recursos</a></li>
+    <li><a href="comunidad.html">Nuestra comunidad</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="contacto.html" class="cta-nav">Pide tu cita</a></li>
+  </ul>
+</nav>
+
+<section style="padding-top:140px;">
+  <div class="section-inner">
+    <p class="eyebrow-label">Sobre mí</p>
+    <h1 class="page-title">Hola, soy Ana.</h1>
+
+    <div class="photo-placeholder">[ espacio para fotografía profesional ]</div>
+
+    <p class="intro">Soy Ana Esperanza Lagares, Psicóloga General Sanitaria colegiada por el Colegio Oficial de Psicología de Andalucía Occidental. Me apasiona entender cómo funciona la mente y acompañar a cada persona desde el respeto, la evidencia y la cercanía. Esto es, en pocas palabras, mi recorrido hasta aquí:</p>
+
+    <div class="cards-grid">
+      <div class="card"><div class="icon">🧠</div><h3>Neuropsicología clínica</h3><p>Formación especializada en cerebro, conducta y evaluación neuropsicológica.</p></div>
+      <div class="card"><div class="icon">🔬</div><h3>Investigación en neurodegeneración</h3><p>Proyecto internacional sobre biomarcadores de Alzheimer, Hospital Virgen del Rocío.</p></div>
+      <div class="card"><div class="icon">🧒</div><h3>Neurodesarrollo infantil</h3><p>Especialización en TDAH, TEA, dislexia y trastornos de conducta.</p></div>
+      <div class="card"><div class="icon">🏥</div><h3>Experiencia hospitalaria</h3><p>Unidades de Memoria y Salud Mental, Hospital Universitario Virgen del Rocío.</p></div>
+      <div class="card"><div class="icon">👨‍👩‍👧</div><h3>Trabajo con familias</h3><p>Acompañamiento y coordinación con colegios y servicios sociales.</p></div>
+      <div class="card"><div class="icon">🌍</div><h3>Atención bilingüe</h3><p>Consulta y evaluación en español e inglés.</p></div>
+      <div class="card"><div class="icon">🎓</div><h3>Investigación y publicaciones</h3><p>Trabajo publicado en la Revista Iberoamericana de Salud y Deporte (US–UNIA).</p></div>
+      <div class="card"><div class="icon">📋</div><h3>Labor académica</h3><p>Supervisión de estudiantes en prácticas.</p></div>
+    </div>
+
+    <p class="closing">Mi trabajo combina dos grandes áreas de la neuropsicología que me apasionan por igual: el neurodesarrollo infantil y la neurodegeneración en la edad adulta — siempre con la convicción de que entender el cerebro debe traducirse en ayuda real, cercana y accesible para las personas y sus familias.</p>
+  </div>
+</section>
+
+<footer>AEL · Ana Esperanza Lagares — Neuropsicóloga · Sevilla, España</footer>
+</body>
+</html>
