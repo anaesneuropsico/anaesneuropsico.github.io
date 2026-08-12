@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuestra comunidad | AEL Neuropsicología</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#164870; --light-blue:#A9C5D5; --terracota:#C9926B; --cream:#F3EEE6; --sand:#DCCDBD; --charcoal:#292C2F; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Manrope',sans-serif; color:var(--charcoal); background-color:var(--cream); line-height:1.65; }
+  h1,h2,h3 { font-family:'DM Serif Display',serif; font-weight:400; }
+  a { text-decoration:none; color:inherit; }
+  nav { position:fixed; top:0; width:100%; background-color:var(--cream); padding:18px 40px; display:flex; justify-content:space-between; align-items:center; z-index:100; box-shadow:0 1px 0 rgba(41,44,47,0.08); }
+  nav .logo { font-family:'DM Serif Display',serif; font-size:1.3rem; color:var(--navy); letter-spacing:1px; }
+  nav ul { list-style:none; display:flex; gap:26px; align-items:center; }
+  nav ul li a { font-size:0.85rem; font-weight:500; }
+  nav ul li a:hover { color:var(--terracota); }
+  nav .cta-nav { background-color:var(--terracota); color:#fff!important; padding:9px 18px; border-radius:30px; font-size:0.8rem; }
+  section { padding:80px 40px; }
+  .section-inner { max-width:850px; margin:0 auto; }
+  .eyebrow-label { letter-spacing:2px; text-transform:uppercase; font-size:0.75rem; color:var(--terracota); font-weight:700; margin-bottom:12px; }
+  h1.page-title { font-size:2.2rem; color:var(--navy); margin-bottom:16px; }
+  p.intro { max-width:600px; color:#4d5459; margin-bottom:50px; }
+  .block { margin-bottom:60px; }
+  .block h2 { font-size:1.5rem; color:var(--navy); margin-bottom:26px; }
+  .faq-item { border-bottom:1px solid var(--sand); padding:18px 0; }
+  .faq-item h3 { font-family:'Manrope',sans-serif; font-size:0.98rem; font-weight:700; color:var(--navy); margin-bottom:8px; }
+  .faq-item p { font-size:0.9rem; color:#565d61; }
+  .testimonio { background-color:#fff; border-left:3px solid var(--terracota); padding:26px; border-radius:6px; margin-bottom:18px; font-style:italic; color:#4d5459; }
+  .testimonio span { display:block; margin-top:12px; font-style:normal; font-size:0.85rem; color:var(--navy); font-weight:600; }
+  .redes { display:flex; gap:16px; }
+  .redes a { background-color:var(--navy); color:#fff; padding:12px 22px; border-radius:30px; font-size:0.88rem; font-weight:600; }
+  footer { padding:40px; text-align:center; font-size:0.8rem; color:#6b6259; }
+  @media (max-width:800px){ nav ul { display:none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">AEL</a>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="sobre-mi.html">Sobre mí</a></li>
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="recursos.html">Recursos</a></li>
+    <li><a href="comunidad.html">Nuestra comunidad</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="contacto.html" class="cta-nav">Pide tu cita</a></li>
+  </ul>
+</nav>
+
+<section style="padding-top:140px;">
+  <div class="section-inner">
+    <p class="eyebrow-label">Nuestra comunidad</p>
+    <h1 class="page-title">Testimonios y dudas frecuentes.</h1>
+    <p class="intro">Gracias a las familias y personas que confían en este camino.</p>
+
+    <div class="block">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item">
+        <h3>¿Cuándo debería valorar a mi hijo/a?</h3>
+        <p>Si notas dificultades sostenidas en atención, conducta, aprendizaje o relación con su entorno que afectan a su día a día, una evaluación temprana ayuda a entender qué está pasando y cómo intervenir.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿La primera consulta es una evaluación completa?</h3>
+        <p>No. La primera sesión es siempre de toma de contacto, para entender el motivo de consulta y valorar juntos los siguientes pasos.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Ofreces consulta online?</h3>
+        <p>Sí, tanto presencial en Sevilla como online, según lo que mejor se adapte a cada caso.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Reseñas</h2>
+      <div class="testimonio">"Desde el primer momento sentimos que estábamos en buenas manos. Su cercanía, profesionalidad y dedicación han marcado la diferencia."<span>— Madre de X, 2026</span></div>
+    </div>
+
+    <div class="block">
+      <h2>Explora</h2>
+      <p style="color:#4d5459; margin-bottom:20px;">Sígueme en redes para contenido de divulgación sobre neuropsicología y neurodesarrollo.</p>
+      <div class="redes">
+        <a href="https://instagram.com/anaes.neuropsico" target="_blank">Instagram</a>
+        <a href="#" target="_blank">TikTok</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>AEL · Ana Esperanza Lagares — Neuropsicóloga · Sevilla, España</footer>
+</body>
+</html>
