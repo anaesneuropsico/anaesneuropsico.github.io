@@ -3,174 +3,317 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ana Esperanza Lagares | Neuropsicología</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<title>AEL | Ana Esperanza Lagares · Neuropsicología</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --navy: #164870;
+    --light-blue: #A9C5D5;
+    --terracota: #C9926B;
+    --cream: #F3EEE6;
+    --sand: #DCCDBD;
+    --charcoal: #292C2F;
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: 'Inter', sans-serif;
-    color: #3B332B;
-    background-color: #F6F1E9;
+    font-family: 'Manrope', sans-serif;
+    color: var(--charcoal);
+    background-color: var(--cream);
+    line-height: 1.6;
   }
-  h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 500; }
+  h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+  a { text-decoration: none; color: inherit; }
 
   /* NAV */
   nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #F6F1E9;
+    background-color: var(--cream);
     padding: 18px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    box-shadow: 0 1px 0 rgba(59,51,43,0.08);
+    box-shadow: 0 1px 0 rgba(41,44,47,0.08);
   }
   nav .logo {
-    font-family: 'Fraunces', serif;
-    font-size: 1.1rem;
-    color: #3B332B;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--navy);
+    letter-spacing: 1px;
   }
   nav ul {
     list-style: none;
     display: flex;
-    gap: 28px;
+    gap: 26px;
+    align-items: center;
   }
   nav ul li a {
-    text-decoration: none;
-    color: #3B332B;
     font-size: 0.85rem;
-    letter-spacing: 0.5px;
+    font-weight: 500;
+    color: var(--charcoal);
   }
-  nav ul li a:hover { color: #C08A6B; }
+  nav ul li a:hover { color: var(--terracota); }
+  nav .cta-nav {
+    background-color: var(--terracota);
+    color: #fff !important;
+    padding: 9px 18px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+  }
+  .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--navy); }
 
   /* HERO */
   .hero {
-    height: 100vh;
+    min-height: 92vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
+    padding: 140px 60px 60px;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
-  .hero p.eyebrow {
-    letter-spacing: 3px;
+  .hero-text { flex: 1; }
+  .hero-text p.eyebrow {
+    letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 0.75rem;
-    color: #7FA6A0;
-    margin-bottom: 18px;
+    color: var(--terracota);
+    font-weight: 700;
+    margin-bottom: 16px;
   }
-  .hero h1 {
-    font-size: 2.8rem;
-    margin-bottom: 14px;
+  .hero-text h1 { font-size: 2.6rem; color: var(--navy); line-height: 1.25; margin-bottom: 20px; }
+  .hero-text h1 .accent { color: var(--terracota); }
+  .hero-text p.desc { font-size: 1.05rem; color: #4d5459; max-width: 420px; margin-bottom: 30px; }
+  .btn-primary {
+    display: inline-block;
+    background-color: var(--navy);
+    color: #fff;
+    padding: 14px 26px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
   }
-  .hero .accent-line {
-    width: 40px;
-    height: 3px;
-    background-color: #C08A6B;
+  .hero-image {
+    flex: 1;
+    aspect-ratio: 4/5;
+    background-color: var(--sand);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b6259;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 20px;
+  }
+
+  section { padding: 90px 40px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .eyebrow-label {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--terracota);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .section-title { font-size: 2rem; color: var(--navy); margin-bottom: 40px; max-width: 600px; }
+
+  /* SERVICIOS */
+  .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+  .servicio-card {
+    background-color: #fff;
+    border: 1px solid var(--sand);
+    border-radius: 12px;
+    padding: 32px;
+  }
+  .servicio-card h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 10px; }
+  .servicio-card p { font-size: 0.92rem; color: #565d61; margin-bottom: 18px; }
+  .link-arrow { color: var(--terracota); font-weight: 600; font-size: 0.88rem; }
+
+  /* RECURSOS */
+  .recursos-section { background-color: var(--navy); color: #fff; }
+  .recursos-section .eyebrow-label { color: var(--light-blue); }
+  .recursos-section .section-title { color: #fff; }
+  .recursos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .recurso-card {
+    background-color: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 30px;
+  }
+  .recurso-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+  .recurso-card p { font-size: 0.88rem; color: var(--light-blue); margin-bottom: 16px; }
+  .recurso-card .link-arrow { color: var(--terracota); }
+
+  /* COMUNIDAD */
+  .testimonio {
+    background-color: #fff;
+    border-left: 3px solid var(--terracota);
+    padding: 30px;
+    border-radius: 6px;
+    max-width: 600px;
+    font-style: italic;
+    color: #4d5459;
+    margin-bottom: 20px;
+  }
+  .testimonio span { display: block; margin-top: 14px; font-style: normal; font-size: 0.85rem; color: var(--navy); font-weight: 600; }
+
+  /* NEWSLETTER */
+  .newsletter-section { background-color: var(--sand); text-align: center; }
+  .newsletter-section .section-inner { max-width: 500px; }
+  .newsletter-form { display: flex; gap: 10px; margin-top: 26px; flex-wrap: wrap; justify-content: center; }
+  .newsletter-form input {
+    flex: 1;
+    min-width: 200px;
+    padding: 13px 16px;
+    border-radius: 30px;
+    border: 1px solid var(--navy);
+    font-family: 'Manrope', sans-serif;
+  }
+  .newsletter-form button {
+    background-color: var(--terracota);
+    color: #fff;
     border: none;
-    margin: 20px 0;
+    padding: 13px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
   }
-  .hero p.tagline {
-    font-size: 1.1rem;
-    color: #6B6259;
-    max-width: 420px;
-  }
+  .newsletter-note { font-size: 0.75rem; color: #6b6259; margin-top: 14px; }
 
-  section { padding: 80px 40px; max-width: 900px; margin: 0 auto; }
+  /* CONTACTO preview */
+  .contacto-preview { text-align: center; background-color: var(--navy); color: #fff; }
+  .contacto-preview h2 { color: #fff; margin-bottom: 16px; }
+  .contacto-preview p { color: var(--light-blue); margin-bottom: 26px; }
+  .contacto-preview .btn-primary { background-color: var(--terracota); }
 
-  @media (max-width: 600px) {
-    nav ul { gap: 14px; }
-    nav ul li a { font-size: 0.7rem; }
-    .hero h1 { font-size: 2rem; }
+  footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #6b6259; }
+
+  @media (max-width: 800px) {
+    .hero { flex-direction: column; padding-top: 120px; }
+    nav ul { display: none; }
+    .menu-toggle { display: block; }
+    .hero-text h1 { font-size: 2rem; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="logo">Ana Esperanza</div>
+  <a href="index.html" class="logo">AEL</a>
   <ul>
-    <li><a href="#sobre-mi">Sobre mí</a></li>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#resenas">Reseñas</a></li>
-    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="sobre-mi.html">Sobre mí</a></li>
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="recursos.html">Recursos</a></li>
+    <li><a href="comunidad.html">Nuestra comunidad</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="contacto.html" class="cta-nav">Pide tu cita</a></li>
   </ul>
+  <button class="menu-toggle">☰</button>
 </nav>
 
 <div class="hero">
-  <p class="eyebrow">Neuropsicología</p>
-  <h1>Ana Esperanza Lagares</h1>
-  <hr class="accent-line">
-  <p class="tagline">Acercando la neurociencia al día a día 🧠</p>
+  <div class="hero-text">
+    <p class="eyebrow">Neuropsicología · Sevilla</p>
+    <h1>Comprender.<br>Evaluar. <span class="accent">Acompañar.</span></h1>
+    <p class="desc">Neuropsicología y psicología desde una mirada cercana, rigurosa y personalizada.</p>
+    <a href="sobre-mi.html" class="btn-primary">Conoce mi trabajo →</a>
+  </div>
+  <div class="hero-image">[ espacio para fotografía profesional ]</div>
 </div>
 
-<section id="sobre-mi">
-  <p style="letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem; color: #7FA6A0; margin-bottom: 14px;">Sobre mí</p>
-  <h2 style="font-size: 2rem; margin-bottom: 20px;">Mi camino hasta aquí</h2>
-
-  <div style="width: 100%; aspect-ratio: 4/5; max-width: 280px; background-color: #D9CBB8; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; color: #6B6259; font-size: 0.85rem;">
-    [ espacio para foto ]
-  </div>
-
-  <p style="margin-bottom: 40px; line-height: 1.7; color: #4A423A; max-width: 640px;">Soy Ana Esperanza Lagares, Psicóloga General Sanitaria colegiada por el Colegio Oficial de Psicología de Andalucía Occidental desde 2024. Esto es, en pocas palabras, mi recorrido hasta aquí:</p>
-
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px;">
-
-    <div style="background-color: #FBF9F5; border: 1px solid #E8DFD0; border-radius: 10px; padding: 26px;">
-      <div style="width: 44px; height: 44px; background-color: #C08A6B; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px;">🧠</div>
-      <h3 style="font-size: 1.05rem; margin-bottom: 8px;">Neuropsicología clínica</h3>
-      <p style="font-size: 0.88rem; color: #6B6259; line-height: 1.5;">Formación especializada en cerebro, conducta y evaluación neuropsicológica.</p>
+<section>
+  <div class="section-inner">
+    <p class="eyebrow-label">¿Cómo puedo ayudarte?</p>
+    <h2 class="section-title">Cada persona es única.</h2>
+    <div class="servicios-grid">
+      <div class="servicio-card">
+        <h3>Neuropsicología infantojuvenil</h3>
+        <p>Evaluación e intervención en dificultades cognitivas, emocionales y conductuales.</p>
+        <a href="servicios.html" class="link-arrow">Saber más →</a>
+      </div>
+      <div class="servicio-card">
+        <h3>Neuropsicología en adultos</h3>
+        <p>Evaluación y rehabilitación de funciones cognitivas en distintos contextos.</p>
+        <a href="servicios.html" class="link-arrow">Saber más →</a>
+      </div>
+      <div class="servicio-card">
+        <h3>Psicología y psicoterapia</h3>
+        <p>Acompañamiento emocional y terapia psicológica personalizada.</p>
+        <a href="servicios.html" class="link-arrow">Saber más →</a>
+      </div>
     </div>
-
-    <div style="background-color: #FBF9F5; border: 1px solid #E8DFD0; border-radius: 10px; padding: 26px;">
-      <div style="width: 44px; height: 44px; background-color: #7FA6A0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px;">🔬</div>
-      <h3 style="font-size: 1.05rem; margin-bottom: 8px;">Investigación en neurodegeneración</h3>
-      <p style="font-size: 0.88rem; color: #6B6259; line-height: 1.5;">Proyecto internacional sobre biomarcadores de Alzheimer, Hospital Virgen del Rocío.</p>
+    <div style="margin-top: 30px;">
+      <a href="servicios.html" class="link-arrow">Ver todos los servicios →</a>
     </div>
-
-    <div style="background-color: #FBF9F5; border: 1px solid #E8DFD0; border-radius: 10px; padding: 26px;">
-      <div style="width: 44px; height: 44px; background-color: #C08A6B; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px;">🧒</div>
-      <h3 style="font-size: 1.05rem; margin-bottom: 8px;">Neurodesarrollo infantil</h3>
-      <p style="font-size: 0.88rem; color: #6B6259; line-height: 1.5;">Especialización en TDAH, TEA, dislexia y trastornos de conducta.</p>
-    </div>
-
-    <div style="background-color: #FBF9F5; border: 1px solid #E8DFD0; border-radius: 10px; padding: 26px;">
-      <div style="width: 44px; height: 44px; background-color: #7FA6A0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px;">🏥</div>
-      <h3 style="font-size: 1.05rem; margin-bottom: 8px;">Experiencia hospitalaria</h3>
-      <p style="font-size: 0.88rem; color: #6B6259; line-height: 1.5;">Unidades de Memoria y Salud Mental, Hospital Universitario Virgen del Rocío.</p>
-    </div>
-
-    <div style="background-color: #FBF9F5; border: 1px solid #E8DFD0; border-radius: 10px; padding: 26px;">
-      <div style="width: 44px; height: 44px; background-color: #C08A6B; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px;">👨‍👩‍👧</div>
-      <h3 style="font-size: 1.05rem; margin-bottom: 8px;">Trabajo con familias</h3>
-      <p style="font-size: 0.88rem; color: #6B6259; line-height: 1.5;">Acompañamiento y coordinación con colegios y servicios sociales.</p>
-    </div>
-
-    <div style="background-color: #FBF9F5; border: 1px solid #E8DFD0; border-radius: 10px; padding: 26px;">
-      <div style="width: 44px; height: 44px; background-color: #7FA6A0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px;">🌍</div>
-      <h3 style="font-size: 1.05rem; margin-bottom: 8px;">Atención bilingüe</h3>
-      <p style="font-size: 0.88rem; color: #6B6259; line-height: 1.5;">Consulta y evaluación en español e inglés.</p>
-    </div>
-
-    <div style="background-color: #FBF9F5; border: 1px solid #E8DFD0; border-radius: 10px; padding: 26px;">
-      <div style="width: 44px; height: 44px; background-color: #C08A6B; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px;">🎓</div>
-      <h3 style="font-size: 1.05rem; margin-bottom: 8px;">Investigación y publicaciones</h3>
-      <p style="font-size: 0.88rem; color: #6B6259; line-height: 1.5;">Trabajo publicado en la Revista Iberoamericana de Salud y Deporte (US–UNIA).</p>
-    </div>
-
-    <div style="background-color: #FBF9F5; border: 1px solid #E8DFD0; border-radius: 10px; padding: 26px;">
-      <div style="width: 44px; height: 44px; background-color: #7FA6A0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px;">📋</div>
-      <h3 style="font-size: 1.05rem; margin-bottom: 8px;">Informes y supervisión</h3>
-      <p style="font-size: 0.88rem; color: #6B6259; line-height: 1.5;">Redacción de informes y supervisión de estudiantes en prácticas.</p>
-    </div>
-
   </div>
 </section>
 
-<!-- Aquí seguirán el resto de secciones: Servicios, Reseñas, Contacto -->
+<section class="recursos-section">
+  <div class="section-inner">
+    <p class="eyebrow-label">Recursos</p>
+    <h2 class="section-title">Explora y aprende.</h2>
+    <div class="recursos-grid">
+      <div class="recurso-card">
+        <h3>Tests</h3>
+        <p>Evalúa tus funciones cognitivas con nuestros tests orientativos.</p>
+        <a href="recursos.html" class="link-arrow">Acceder →</a>
+      </div>
+      <div class="recurso-card">
+        <h3>Artículos</h3>
+        <p>Información y consejos sobre neurociencia, psicología y bienestar.</p>
+        <a href="recursos.html" class="link-arrow">Leer →</a>
+      </div>
+      <div class="recurso-card">
+        <h3>Material</h3>
+        <p>Guías, ejercicios y recursos prácticos gratuitos.</p>
+        <a href="recursos.html" class="link-arrow">Descargar →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <p class="eyebrow-label">Nuestra comunidad</p>
+    <h2 class="section-title">Historias que nos inspiran.</h2>
+    <div class="testimonio">
+      "Desde el primer momento sentimos que estábamos en buenas manos. Su cercanía, profesionalidad y dedicación han marcado la diferencia."
+      <span>— Madre de X, 2026</span>
+    </div>
+    <a href="comunidad.html" class="link-arrow">Ver testimonios →</a>
+  </div>
+</section>
+
+<section class="newsletter-section">
+  <div class="section-inner">
+    <p class="eyebrow-label">Newsletter</p>
+    <h2 class="section-title" style="margin-bottom: 10px;">Una pequeña dosis de neuropsicología.</h2>
+    <p style="color: #565d61;">Un artículo. Un recurso. Una idea para llevarte contigo.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Formulario pendiente de conectar a un servicio de newsletter (ej. Mailchimp).');">
+      <input type="email" placeholder="Tu correo electrónico" required>
+      <button type="submit">Quiero recibirlo</button>
+    </form>
+    <p class="newsletter-note">Al suscribirte aceptas nuestra política de privacidad.</p>
+  </div>
+</section>
+
+<section class="contacto-preview">
+  <div class="section-inner">
+    <h2>¿Hablamos?</h2>
+    <p>Estoy aquí para ayudarte. Cuéntame tu caso y valoraremos juntos cómo puedo acompañarte.</p>
+    <a href="contacto.html" class="btn-primary">Hablemos →</a>
+  </div>
+</section>
+
+<footer>
+  AEL · Ana Esperanza Lagares — Neuropsicóloga · Sevilla, España
+</footer>
 
 </body>
 </html>
