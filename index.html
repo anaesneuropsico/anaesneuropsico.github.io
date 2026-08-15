@@ -20,11 +20,21 @@
     color: var(--charcoal);
     background-color: var(--cream);
     line-height: 1.6;
+    position: relative;
   }
   h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
   a { text-decoration: none; color: inherit; }
 
-  /* NAV */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(circle at 15% 20%, rgba(169,197,213,0.25) 0%, transparent 35%),
+                       radial-gradient(circle at 85% 75%, rgba(201,146,107,0.15) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
   nav {
     position: fixed;
     top: 0;
@@ -42,6 +52,9 @@
     font-size: 1.3rem;
     color: var(--navy);
     letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
   nav ul {
     list-style: none;
@@ -53,7 +66,18 @@
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--charcoal);
+    position: relative;
   }
+  nav ul li a:not(.cta-nav)::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--terracota);
+    transition: width 0.25s ease;
+  }
+  nav ul li a:not(.cta-nav):hover::after { width: 100%; }
   nav ul li a:hover { color: var(--terracota); }
   nav .cta-nav {
     background-color: var(--terracota);
@@ -61,10 +85,14 @@
     padding: 9px 18px;
     border-radius: 30px;
     font-size: 0.8rem;
+    transition: all 0.25s ease;
+  }
+  nav .cta-nav:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(22,72,112,0.25);
   }
   .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--navy); }
 
-  /* HERO */
   .hero {
     min-height: 92vh;
     display: flex;
@@ -94,6 +122,11 @@
     border-radius: 30px;
     font-size: 0.9rem;
     font-weight: 600;
+    transition: all 0.25s ease;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(22,72,112,0.25);
   }
   .hero-image {
     flex: 1;
@@ -121,19 +154,33 @@
   }
   .section-title { font-size: 2rem; color: var(--navy); margin-bottom: 40px; max-width: 600px; }
 
-  /* SERVICIOS */
   .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
   .servicio-card {
     background-color: #fff;
     border: 1px solid var(--sand);
     border-radius: 12px;
     padding: 32px;
+    transition: all 0.25s ease;
+  }
+  .servicio-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(41,44,47,0.08);
+    border-color: var(--terracota);
   }
   .servicio-card h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 10px; }
   .servicio-card p { font-size: 0.92rem; color: #565d61; margin-bottom: 18px; }
-  .link-arrow { color: var(--terracota); font-weight: 600; font-size: 0.88rem; }
+  .link-arrow { color: var(--terracota); font-weight: 600; font-size: 0.88rem; position: relative; }
+  .link-arrow::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -3px;
+    width: 0%;
+    height: 1px;
+    background-color: var(--terracota);
+    transition: width 0.25s ease;
+  }
+  .link-arrow:hover::after { width: 100%; }
 
-  /* RECURSOS */
   .recursos-section { background-color: var(--navy); color: #fff; }
   .recursos-section .eyebrow-label { color: var(--light-blue); }
   .recursos-section .section-title { color: #fff; }
@@ -143,12 +190,16 @@
     border: 1px solid rgba(255,255,255,0.15);
     border-radius: 12px;
     padding: 30px;
+    transition: all 0.25s ease;
+  }
+  .recurso-card:hover {
+    transform: translateY(-4px);
+    background-color: rgba(255,255,255,0.1);
   }
   .recurso-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
   .recurso-card p { font-size: 0.88rem; color: var(--light-blue); margin-bottom: 16px; }
   .recurso-card .link-arrow { color: var(--terracota); }
 
-  /* COMUNIDAD */
   .testimonio {
     background-color: #fff;
     border-left: 3px solid var(--terracota);
@@ -161,7 +212,6 @@
   }
   .testimonio span { display: block; margin-top: 14px; font-style: normal; font-size: 0.85rem; color: var(--navy); font-weight: 600; }
 
-  /* NEWSLETTER */
   .newsletter-section { background-color: var(--sand); text-align: center; }
   .newsletter-section .section-inner { max-width: 500px; }
   .newsletter-form { display: flex; gap: 10px; margin-top: 26px; flex-wrap: wrap; justify-content: center; }
@@ -182,16 +232,30 @@
     font-weight: 600;
     cursor: pointer;
     font-family: 'Manrope', sans-serif;
+    transition: all 0.25s ease;
+  }
+  .newsletter-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(22,72,112,0.25);
   }
   .newsletter-note { font-size: 0.75rem; color: #6b6259; margin-top: 14px; }
 
-  /* CONTACTO preview */
   .contacto-preview { text-align: center; background-color: var(--navy); color: #fff; }
   .contacto-preview h2 { color: #fff; margin-bottom: 16px; }
   .contacto-preview p { color: var(--light-blue); margin-bottom: 26px; }
   .contacto-preview .btn-primary { background-color: var(--terracota); }
 
   footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #6b6259; }
+
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  [data-animate].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   @media (max-width: 800px) {
     .hero { flex-direction: column; padding-top: 120px; }
@@ -204,7 +268,18 @@
 <body>
 
 <nav>
-  <a href="index.html" class="logo">AEL</a>
+  <a href="index.html" class="logo">
+    <svg width="26" height="20" viewBox="0 0 60 46" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="14" cy="20" r="7" fill="#164870"/>
+      <path d="M11 15 C7 10, 5 8, 2 4" stroke="#164870" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M9 22 C4 21, 1 21, -3 22" stroke="#164870" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M20 20 C28 25, 34 27, 42 27" stroke="#164870" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <circle cx="30" cy="26" r="3.2" fill="#C9926B"/>
+      <circle cx="38" cy="27" r="3.2" fill="#C9926B"/>
+      <path d="M42 27 C48 24, 52 23, 58 20" stroke="#164870" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+    </svg>
+    AEL
+  </a>
   <ul>
     <li><a href="index.html">Inicio</a></li>
     <li><a href="sobre-mi.html">Sobre mí</a></li>
@@ -314,6 +389,16 @@
 <footer>
   AEL · Ana Esperanza Lagares — Neuropsicóloga · Sevilla, España
 </footer>
+
+<script>
+  document.querySelectorAll('section, .hero').forEach(el => el.setAttribute('data-animate', ''));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
