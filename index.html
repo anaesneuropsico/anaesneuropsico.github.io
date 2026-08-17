@@ -16,34 +16,68 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html {
-    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
   }
   body {
     font-family: 'Manrope', sans-serif;
     color: var(--charcoal);
     background-color: var(--cream);
+    background-image: url('assets/acuarela.jfif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     line-height: 1.6;
     position: relative;
+    overflow-x: hidden;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--cream);
+    opacity: 0.86;
+    pointer-events: none;
+    z-index: -1;
   }
   h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
   a { text-decoration: none; color: inherit; }
 
-  body::before {
-    content: "";
+  body::before { display: none; }
+
+  .parallax-layer {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: radial-gradient(circle at 15% 20%, rgba(169,197,213,0.25) 0%, transparent 35%),
-                       radial-gradient(circle at 85% 75%, rgba(201,146,107,0.15) 0%, transparent 40%);
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     pointer-events: none;
     z-index: -1;
+    overflow: hidden;
+  }
+  .blob-wrap { position: absolute; }
+  .blob {
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.35;
+    animation: float 9s ease-in-out infinite;
+  }
+  .blob-1 { width: 380px; height: 380px; background: var(--light-blue); }
+  .blob-2 { width: 300px; height: 300px; background: var(--terracota); opacity: 0.22; animation-duration: 11s; }
+  .blob-3 { width: 340px; height: 340px; background: var(--light-blue); opacity: 0.28; animation-duration: 13s; }
+  .blob-4 { width: 260px; height: 260px; background: var(--terracota); opacity: 0.18; animation-duration: 8s; }
+  .blob-5 { width: 300px; height: 300px; background: var(--light-blue); opacity: 0.25; animation-duration: 10s; }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(20px,-25px) scale(1.06); }
+    66% { transform: translate(-15px,15px) scale(0.96); }
   }
 
   nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: var(--cream);
+    background-color: rgba(243,238,230,0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 18px 40px;
     display: flex;
     justify-content: space-between;
@@ -98,15 +132,14 @@
   .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--navy); }
 
   .hero {
-    min-height: 100vh;
+    min-height: 92vh;
     display: flex;
     align-items: center;
     padding: 140px 60px 60px;
     gap: 60px;
     max-width: 1200px;
     margin: 0 auto;
-    scroll-snap-align: start;
-    box-sizing: border-box;
+    position: relative;
   }
   .hero-text { flex: 1; }
   .hero-text p.eyebrow {
@@ -150,11 +183,7 @@
 
   section {
     padding: 90px 40px;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    scroll-snap-align: start;
-    box-sizing: border-box;
+    position: relative;
   }
   .section-inner { max-width: 1100px; margin: 0 auto; }
   .eyebrow-label {
@@ -169,15 +198,17 @@
 
   .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
   .servicio-card {
-    background-color: #fff;
-    border: 1px solid var(--sand);
+    background-color: rgba(255,255,255,0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(220,205,189,0.6);
     border-radius: 12px;
     padding: 32px;
-    transition: all 0.25s ease;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.35s ease;
   }
   .servicio-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 28px rgba(41,44,47,0.08);
+    transform: translateY(-6px) scale(1.02) rotate(-0.5deg);
+    box-shadow: 0 16px 34px rgba(41,44,47,0.12);
     border-color: var(--terracota);
   }
   .servicio-card h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 10px; }
@@ -194,20 +225,29 @@
   }
   .link-arrow:hover::after { width: 100%; }
 
-  .recursos-section { background-color: var(--navy); color: #fff; }
+  .recursos-section { padding: 50px 40px; }
+  .recursos-section .section-inner {
+    background-color: var(--navy);
+    color: #fff;
+    border-radius: 28px;
+    padding: 60px 50px;
+    box-shadow: 0 24px 50px rgba(22,72,112,0.28);
+  }
   .recursos-section .eyebrow-label { color: var(--light-blue); }
   .recursos-section .section-title { color: #fff; }
   .recursos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
   .recurso-card {
-    background-color: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.15);
+    background-color: rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.18);
     border-radius: 12px;
     padding: 30px;
-    transition: all 0.25s ease;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.35s ease;
   }
   .recurso-card:hover {
-    transform: translateY(-4px);
-    background-color: rgba(255,255,255,0.1);
+    transform: translateY(-6px) scale(1.02) rotate(0.5deg);
+    background-color: rgba(255,255,255,0.14);
   }
   .recurso-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
   .recurso-card p { font-size: 0.88rem; color: var(--light-blue); margin-bottom: 16px; }
@@ -253,7 +293,14 @@
   }
   .newsletter-note { font-size: 0.75rem; color: #6b6259; margin-top: 14px; }
 
-  .contacto-preview { text-align: center; background-color: var(--navy); color: #fff; }
+  .contacto-preview { text-align: center; padding: 50px 40px; }
+  .contacto-preview .section-inner {
+    background-color: var(--navy);
+    color: #fff;
+    border-radius: 28px;
+    padding: 60px 50px;
+    box-shadow: 0 24px 50px rgba(22,72,112,0.28);
+  }
   .contacto-preview h2 { color: #fff; margin-bottom: 16px; }
   .contacto-preview p { color: var(--light-blue); margin-bottom: 26px; }
   .contacto-preview .btn-primary { background-color: var(--terracota); }
@@ -262,17 +309,24 @@
 
   [data-animate] {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(24px) scale(0.96);
+    transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   [data-animate].visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+  }
+  [data-animate-pop] {
+    opacity: 0;
+    transform: scale(0.7) rotate(-4deg);
+    transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  [data-animate-pop].visible {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
   }
 
   @media (max-width: 800px) {
-    html { scroll-snap-type: none; }
-    section, .hero { min-height: auto; scroll-snap-align: none; }
     .hero { flex-direction: column; padding-top: 120px; }
     nav ul { display: none; }
     .menu-toggle { display: block; }
@@ -281,6 +335,14 @@
 </style>
 </head>
 <body>
+
+<div class="parallax-layer">
+  <div class="blob-wrap" data-speed="0.15" style="top:5%; left:-5%;"><div class="blob blob-1"></div></div>
+  <div class="blob-wrap" data-speed="0.3" style="top:40%; right:-8%;"><div class="blob blob-2"></div></div>
+  <div class="blob-wrap" data-speed="0.1" style="top:80%; left:10%;"><div class="blob blob-3"></div></div>
+  <div class="blob-wrap" data-speed="0.25" style="top:130%; right:5%;"><div class="blob blob-4"></div></div>
+  <div class="blob-wrap" data-speed="0.18" style="top:175%; left:-6%;"><div class="blob blob-5"></div></div>
+</div>
 
 <nav>
   <a href="index.html" class="logo">
@@ -322,17 +384,17 @@
     <p class="eyebrow-label">¿Cómo puedo ayudarte?</p>
     <h2 class="section-title">Cada persona es única.</h2>
     <div class="servicios-grid">
-      <div class="servicio-card">
+      <div class="servicio-card" data-animate-pop>
         <h3>Neuropsicología infantojuvenil</h3>
         <p>Evaluación e intervención en dificultades cognitivas, emocionales y conductuales.</p>
         <a href="servicios.html" class="link-arrow">Saber más →</a>
       </div>
-      <div class="servicio-card">
+      <div class="servicio-card" data-animate-pop>
         <h3>Neuropsicología en adultos</h3>
         <p>Evaluación y rehabilitación de funciones cognitivas en distintos contextos.</p>
         <a href="servicios.html" class="link-arrow">Saber más →</a>
       </div>
-      <div class="servicio-card">
+      <div class="servicio-card" data-animate-pop>
         <h3>Psicología y psicoterapia</h3>
         <p>Acompañamiento emocional y terapia psicológica personalizada.</p>
         <a href="servicios.html" class="link-arrow">Saber más →</a>
@@ -349,17 +411,17 @@
     <p class="eyebrow-label">Recursos</p>
     <h2 class="section-title">Explora y aprende.</h2>
     <div class="recursos-grid">
-      <div class="recurso-card">
+      <div class="recurso-card" data-animate-pop>
         <h3>Tests</h3>
         <p>Evalúa tus funciones cognitivas con nuestros tests orientativos.</p>
         <a href="recursos.html" class="link-arrow">Acceder →</a>
       </div>
-      <div class="recurso-card">
+      <div class="recurso-card" data-animate-pop>
         <h3>Artículos</h3>
         <p>Información y consejos sobre neurociencia, psicología y bienestar.</p>
         <a href="recursos.html" class="link-arrow">Leer →</a>
       </div>
-      <div class="recurso-card">
+      <div class="recurso-card" data-animate-pop>
         <h3>Material</h3>
         <p>Guías, ejercicios y recursos prácticos gratuitos.</p>
         <a href="recursos.html" class="link-arrow">Descargar →</a>
@@ -413,6 +475,17 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  document.querySelectorAll('[data-animate-pop]').forEach(el => observer.observe(el));
+
+  const blobWraps = document.querySelectorAll('.blob-wrap');
+  function updateParallax() {
+    const scrolled = window.scrollY;
+    blobWraps.forEach(wrap => {
+      const speed = parseFloat(wrap.getAttribute('data-speed'));
+      wrap.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+  }
+  window.addEventListener('scroll', updateParallax, { passive: true });
 </script>
 
 </body>
