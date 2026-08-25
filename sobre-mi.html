@@ -142,9 +142,16 @@
   }
   h1.page-title { font-size: 2.4rem; color: var(--navy); margin-bottom: 30px; }
 
+  /* --- Cabecera: foto a la izquierda, texto a la derecha --- */
+  .about-hero {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    margin-bottom: 20px;
+  }
   .photo-placeholder {
-    width: 100%;
-    max-width: 280px;
+    flex: 0 0 280px;
+    width: 280px;
     aspect-ratio: 4/5;
     background-color: var(--sand);
     border-radius: 10px;
@@ -155,17 +162,28 @@
     font-size: 0.85rem;
     text-align: center;
     padding: 20px;
-    margin-bottom: 36px;
   }
-  p.intro { max-width: 640px; margin-bottom: 44px; color: #4d5459; font-size: 1.02rem; }
+  .about-hero-text { flex: 1 1 auto; }
+  p.intro { max-width: 560px; color: #4d5459; font-size: 1.02rem; margin: 0; }
 
+  @media (max-width: 800px) {
+    .about-hero { flex-direction: column; align-items: flex-start; }
+    .photo-placeholder { flex: 0 0 auto; }
+    p.intro { max-width: none; }
+  }
+
+  /* --- Tarjetas: flexbox para que la última fila incompleta quede centrada --- */
   .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
+    margin-top: 44px;
     margin-bottom: 20px;
   }
   .card {
+    flex: 1 1 260px;
+    max-width: 280px;
     background-color: rgba(255,255,255,0.55);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -283,19 +301,22 @@
     <p class="eyebrow-label">Sobre mí</p>
     <h1 class="page-title">Hola, soy Ana Esperanza Lagares.</h1>
 
-    <div class="photo-placeholder">[ espacio para fotografía profesional ]</div>
-
-    <p class="intro">Psicóloga General Sanitaria y Neuropsicóloga, colegiada por el Colegio Oficial de Psicología de Andalucía Occidental. Me apasiona entender cómo funciona la mente y acompañar a cada persona desde el respeto, la evidencia y la cercanía. Esto es, en pocas palabras, mi recorrido hasta aquí:</p>
+    <div class="about-hero" data-animate>
+      <div class="photo-placeholder">[ espacio para fotografía profesional ]</div>
+      <div class="about-hero-text">
+        <p class="intro">Psicóloga General Sanitaria y Neuropsicóloga, colegiada por el Colegio Oficial de Psicología de Andalucía Occidental. Me apasiona entender cómo funciona la mente y acompañar a cada persona desde el respeto, la evidencia y la cercanía. Esto es, en pocas palabras, mi recorrido hasta aquí:</p>
+      </div>
+    </div>
 
     <div class="cards-grid">
       <div class="card" data-animate-pop><div class="icon">🧠</div><h3>Neuropsicología clínica</h3><p>Formación especializada en cerebro, conducta y evaluación neuropsicológica.</p></div>
-      <div class="card" data-animate-pop><div class="icon">🔬</div><h3>Investigación en neurodegeneración</h3><p>Proyecto internacional sobre biomarcadores de Alzheimer, Hospital Virgen del Rocío.</p></div>
       <div class="card" data-animate-pop><div class="icon">🧒</div><h3>Neurodesarrollo infantil</h3><p>Especialización en TDAH, TEA, dislexia y trastornos de conducta.</p></div>
       <div class="card" data-animate-pop><div class="icon">🏥</div><h3>Experiencia hospitalaria</h3><p>Unidades de Memoria y Salud Mental, Hospital Universitario Virgen del Rocío.</p></div>
       <div class="card" data-animate-pop><div class="icon">👨‍👩‍👧</div><h3>Trabajo con familias</h3><p>Acompañamiento y coordinación con colegios y servicios sociales.</p></div>
-      <div class="card" data-animate-pop><div class="icon">🌍</div><h3>Atención bilingüe</h3><p>Consulta y evaluación en español e inglés.</p></div>
-      <div class="card" data-animate-pop><div class="icon">🎓</div><h3>Investigación y publicaciones</h3><p>Trabajo publicado en la Revista Iberoamericana de Salud y Deporte (US–UNIA).</p></div>
       <div class="card" data-animate-pop><div class="icon">📋</div><h3>Labor académica</h3><p>Supervisión de estudiantes en prácticas.</p></div>
+      <div class="card" data-animate-pop><div class="icon">🎓</div><h3>Investigación y publicaciones</h3><p>Trabajo publicado en la Revista Iberoamericana de Salud y Deporte (US–UNIA).</p></div>
+      <div class="card" data-animate-pop><div class="icon">🔬</div><h3>Investigación en neurodegeneración</h3><p>Proyecto internacional sobre biomarcadores de Alzheimer, Hospital Virgen del Rocío.</p></div>
+      <div class="card" data-animate-pop><div class="icon">🌍</div><h3>Atención bilingüe</h3><p>Consulta y evaluación en español e inglés.</p></div>
     </div>
   </div>
 </section>
