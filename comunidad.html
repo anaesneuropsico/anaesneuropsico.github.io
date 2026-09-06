@@ -6,39 +6,227 @@
 <title>Nuestra comunidad | AEL Neuropsicología</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root { --navy:#164870; --light-blue:#A9C5D5; --terracota:#C9926B; --cream:#F3EEE6; --sand:#DCCDBD; --charcoal:#292C2F; }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Manrope',sans-serif; color:var(--charcoal); background-color:var(--cream); line-height:1.65; }
-  h1,h2,h3 { font-family:'DM Serif Display',serif; font-weight:400; }
-  a { text-decoration:none; color:inherit; }
-  nav { position:fixed; top:0; width:100%; background-color:var(--cream); padding:18px 40px; display:flex; justify-content:space-between; align-items:center; z-index:100; box-shadow:0 1px 0 rgba(41,44,47,0.08); }
-  nav .logo { font-family:'DM Serif Display',serif; font-size:1.3rem; color:var(--navy); letter-spacing:1px; }
-  nav ul { list-style:none; display:flex; gap:26px; align-items:center; }
-  nav ul li a { font-size:0.85rem; font-weight:500; }
-  nav ul li a:hover { color:var(--terracota); }
-  nav .cta-nav { background-color:var(--terracota); color:#fff!important; padding:9px 18px; border-radius:30px; font-size:0.8rem; }
-  section { padding:80px 40px; }
-  .section-inner { max-width:850px; margin:0 auto; }
-  .eyebrow-label { letter-spacing:2px; text-transform:uppercase; font-size:0.75rem; color:var(--terracota); font-weight:700; margin-bottom:12px; }
-  h1.page-title { font-size:2.2rem; color:var(--navy); margin-bottom:16px; }
-  p.intro { max-width:600px; color:#4d5459; margin-bottom:50px; }
-  .block { margin-bottom:60px; }
-  .block h2 { font-size:1.5rem; color:var(--navy); margin-bottom:26px; }
-  .faq-item { border-bottom:1px solid var(--sand); padding:18px 0; }
-  .faq-item h3 { font-family:'Manrope',sans-serif; font-size:0.98rem; font-weight:700; color:var(--navy); margin-bottom:8px; }
-  .faq-item p { font-size:0.9rem; color:#565d61; }
-  .testimonio { background-color:#fff; border-left:3px solid var(--terracota); padding:26px; border-radius:6px; margin-bottom:18px; font-style:italic; color:#4d5459; }
-  .testimonio span { display:block; margin-top:12px; font-style:normal; font-size:0.85rem; color:var(--navy); font-weight:600; }
-  .redes { display:flex; gap:16px; }
-  .redes a { background-color:var(--navy); color:#fff; padding:12px 22px; border-radius:30px; font-size:0.88rem; font-weight:600; }
-  footer { padding:40px; text-align:center; font-size:0.8rem; color:#6b6259; }
-  @media (max-width:800px){ nav ul { display:none; } }
+  :root {
+    --navy: #164870;
+    --light-blue: #A9C5D5;
+    --terracota: #C9926B;
+    --cream: #F3EEE6;
+    --sand: #DCCDBD;
+    --charcoal: #292C2F;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html {
+    scroll-behavior: smooth;
+    scrollbar-color: var(--terracota) var(--cream);
+    scrollbar-width: thin;
+  }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--terracota); border-radius: 10px; border: 2px solid var(--cream); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--navy); }
+
+  #progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background-color: var(--terracota);
+    z-index: 200;
+  }
+  body {
+    font-family: 'Manrope', sans-serif;
+    color: var(--charcoal);
+    background-color: var(--cream);
+    line-height: 1.65;
+    position: relative;
+    overflow-x: hidden;
+  }
+  h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+  a { text-decoration: none; color: inherit; }
+
+  .parallax-layer {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+  }
+  .blob-wrap { position: absolute; }
+  .blob {
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.35;
+    animation: float 9s ease-in-out infinite;
+  }
+  .blob-1 { width: 380px; height: 380px; background: var(--light-blue); }
+  .blob-2 { width: 300px; height: 300px; background: var(--terracota); opacity: 0.22; animation-duration: 11s; }
+  .blob-3 { width: 340px; height: 340px; background: var(--light-blue); opacity: 0.28; animation-duration: 13s; }
+  .blob-4 { width: 260px; height: 260px; background: var(--terracota); opacity: 0.18; animation-duration: 8s; }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(20px,-25px) scale(1.06); }
+    66% { transform: translate(-15px,15px) scale(0.96); }
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(243,238,230,0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 1px 0 rgba(41,44,47,0.08);
+  }
+  nav .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--navy);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 26px;
+    align-items: center;
+  }
+  nav ul li a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    position: relative;
+  }
+  nav ul li a:not(.cta-nav)::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--terracota);
+    transition: width 0.25s ease;
+  }
+  nav ul li a:not(.cta-nav):hover::after { width: 100%; }
+  nav ul li a:hover { color: var(--terracota); }
+  nav .cta-nav {
+    background-color: var(--terracota);
+    color: #fff !important;
+    padding: 9px 18px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  nav .cta-nav:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(22,72,112,0.25);
+  }
+  .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--navy); }
+
+  section { padding: 90px 40px; position: relative; }
+  .section-inner { max-width: 850px; margin: 0 auto; }
+  .eyebrow-label {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--terracota);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  h1.page-title { font-size: 2.2rem; color: var(--navy); margin-bottom: 16px; }
+  p.intro { max-width: 600px; color: #4d5459; margin-bottom: 50px; }
+
+  .block { margin-bottom: 60px; }
+  .block h2 { font-size: 1.5rem; color: var(--navy); margin-bottom: 26px; }
+
+  .faq-item {
+    border-bottom: 1px solid var(--sand);
+    padding: 18px 4px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+  }
+  .faq-item:hover { background-color: rgba(255,255,255,0.4); padding-left: 14px; }
+  .faq-item h3 { font-family: 'Manrope', sans-serif; font-size: 0.98rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .faq-item p { font-size: 0.9rem; color: #565d61; }
+
+  .testimonio {
+    background-color: rgba(255,255,255,0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-left: 3px solid var(--terracota);
+    padding: 26px;
+    border-radius: 6px;
+    margin-bottom: 18px;
+    font-style: italic;
+    color: #4d5459;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .testimonio:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(41,44,47,0.1); }
+  .testimonio span { display: block; margin-top: 12px; font-style: normal; font-size: 0.85rem; color: var(--navy); font-weight: 600; }
+
+  .redes { display: flex; gap: 16px; }
+  .redes a {
+    background-color: var(--navy);
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  }
+  .redes a:hover {
+    background-color: var(--terracota);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(22,72,112,0.25);
+  }
+
+  footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #6b6259; }
+
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+    transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  [data-animate].visible { opacity: 1; transform: translateY(0) scale(1); }
+
+  @media (max-width: 800px) {
+    nav ul { display: none; }
+    .menu-toggle { display: block; }
+    h1.page-title { font-size: 1.8rem; }
+  }
 </style>
 </head>
 <body>
 
+<div id="progress-bar"></div>
+
+<div class="parallax-layer">
+  <div class="blob-wrap" data-speed="0.15" style="top:5%; left:-5%;"><div class="blob blob-1"></div></div>
+  <div class="blob-wrap" data-speed="0.3" style="top:45%; right:-8%;"><div class="blob blob-2"></div></div>
+  <div class="blob-wrap" data-speed="0.1" style="top:95%; left:8%;"><div class="blob blob-3"></div></div>
+  <div class="blob-wrap" data-speed="0.25" style="top:150%; right:5%;"><div class="blob blob-4"></div></div>
+</div>
+
 <nav>
-  <a href="index.html" class="logo">AEL</a>
+  <a href="index.html" class="logo">
+    <svg width="26" height="20" viewBox="0 0 60 46" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="14" cy="20" r="7" fill="#164870"/>
+      <path d="M11 15 C7 10, 5 8, 2 4" stroke="#164870" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M9 22 C4 21, 1 21, -3 22" stroke="#164870" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M20 20 C28 25, 34 27, 42 27" stroke="#164870" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <circle cx="30" cy="26" r="3.2" fill="#C9926B"/>
+      <circle cx="38" cy="27" r="3.2" fill="#C9926B"/>
+      <path d="M42 27 C48 24, 52 23, 58 20" stroke="#164870" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+    </svg>
+    AEL
+  </a>
   <ul>
     <li><a href="index.html">Inicio</a></li>
     <li><a href="sobre-mi.html">Sobre mí</a></li>
@@ -48,6 +236,7 @@
     <li><a href="contacto.html">Contacto</a></li>
     <li><a href="contacto.html" class="cta-nav">Pide tu cita</a></li>
   </ul>
+  <button class="menu-toggle">☰</button>
 </nav>
 
 <section style="padding-top:140px;">
@@ -56,7 +245,7 @@
     <h1 class="page-title">Testimonios y dudas frecuentes.</h1>
     <p class="intro">Gracias a las familias y personas que confían en este camino.</p>
 
-    <div class="block">
+    <div class="block" data-animate>
       <h2>Preguntas frecuentes</h2>
       <div class="faq-item">
         <h3>¿Cuándo debería valorar a mi hijo/a?</h3>
@@ -72,12 +261,12 @@
       </div>
     </div>
 
-    <div class="block">
+    <div class="block" data-animate>
       <h2>Reseñas</h2>
       <div class="testimonio">"Desde el primer momento sentimos que estábamos en buenas manos. Su cercanía, profesionalidad y dedicación han marcado la diferencia."<span>— Madre de X, 2026</span></div>
     </div>
 
-    <div class="block">
+    <div class="block" data-animate>
       <h2>Explora</h2>
       <p style="color:#4d5459; margin-bottom:20px;">Sígueme en redes para contenido de divulgación sobre neuropsicología y neurodesarrollo.</p>
       <div class="redes">
@@ -90,5 +279,35 @@
 </section>
 
 <footer>AEL · Ana Esperanza Lagares — Neuropsicóloga · Sevilla, España</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+  const blobWraps = document.querySelectorAll('.blob-wrap');
+  function updateParallax() {
+    const scrolled = window.scrollY;
+    blobWraps.forEach(wrap => {
+      const speed = parseFloat(wrap.getAttribute('data-speed'));
+      wrap.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+  }
+  window.addEventListener('scroll', updateParallax, { passive: true });
+
+  const progressBar = document.getElementById('progress-bar');
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+</script>
+
 </body>
 </html>
