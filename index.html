@@ -172,15 +172,14 @@
   .hero-image {
     flex: 1;
     aspect-ratio: 4/5;
-    background-color: var(--sand);
     border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #6b6259;
-    font-size: 0.85rem;
-    text-align: center;
-    padding: 20px;
+    overflow: hidden;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   section {
@@ -388,7 +387,9 @@
     <p class="desc">Neuropsicología y psicología desde una mirada cercana, rigurosa y personalizada.</p>
     <a href="sobre-mi.html" class="btn-primary">Conoce mi trabajo →</a>
   </div>
-  <div class="hero-image">[ espacio para fotografía profesional ]</div>
+  <div class="hero-image">
+    <img src="assets/DSC_0004.JPG" alt="Ana Esperanza Lagares, psicóloga y neuropsicóloga">
+  </div>
 </div>
 
 <section>
