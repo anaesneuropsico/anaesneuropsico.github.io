@@ -135,15 +135,48 @@
 
   .hero {
     min-height: 92vh;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 92vh;
     display: flex;
     align-items: center;
     padding: 140px 60px 60px;
-    gap: 60px;
-    max-width: 1200px;
-    margin: 0 auto;
     position: relative;
+    z-index: 1;
   }
-  .hero-text { flex: 1; }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    display: block;
+  }
+  .hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg,
+      var(--cream) 0%,
+      rgba(243,238,230,0.94) 32%,
+      rgba(243,238,230,0.62) 52%,
+      rgba(243,238,230,0.15) 72%,
+      rgba(243,238,230,0) 88%
+    );
+  }
+  .hero-text {
+    flex: 1;
+    max-width: 540px;
+    position: relative;
+    z-index: 1;
+  }
   .hero-text p.eyebrow {
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -168,18 +201,6 @@
   .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(22,72,112,0.25);
-  }
-  .hero-image {
-    flex: 1;
-    aspect-ratio: 4/5;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
   }
 
   section {
@@ -336,7 +357,14 @@
   }
 
   @media (max-width: 800px) {
-    .hero { flex-direction: column; padding-top: 120px; }
+    .hero-inner { padding-top: 120px; }
+    .hero-bg-overlay {
+      background: linear-gradient(180deg,
+        rgba(243,238,230,0.55) 0%,
+        rgba(243,238,230,0.92) 55%,
+        var(--cream) 78%
+      );
+    }
     nav ul { display: none; }
     .menu-toggle { display: block; }
     .hero-text h1 { font-size: 2rem; }
@@ -381,14 +409,17 @@
 </nav>
 
 <div class="hero">
-  <div class="hero-text">
-    <p class="eyebrow">Neuropsicología · Sevilla</p>
-    <h1>Comprender.<br>Evaluar. <span class="accent">Acompañar.</span></h1>
-    <p class="desc">Neuropsicología y psicología desde una mirada cercana, rigurosa y personalizada.</p>
-    <a href="sobre-mi.html" class="btn-primary">Conoce mi trabajo →</a>
-  </div>
-  <div class="hero-image">
+  <div class="hero-bg">
     <img src="assets/DSC_0004.JPG" alt="Ana Esperanza Lagares, psicóloga y neuropsicóloga">
+  </div>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow">Neuropsicología · Sevilla</p>
+      <h1>Comprender.<br>Evaluar. <span class="accent">Acompañar.</span></h1>
+      <p class="desc">Neuropsicología y psicología desde una mirada cercana, rigurosa y personalizada.</p>
+      <a href="sobre-mi.html" class="btn-primary">Conoce mi trabajo →</a>
+    </div>
   </div>
 </div>
 
