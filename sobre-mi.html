@@ -131,7 +131,7 @@
   .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--navy); }
 
   section { padding: 90px 40px; position: relative; }
-  .section-inner { max-width: 900px; margin: 0 auto; }
+  .section-inner { max-width: 1000px; margin: 0 auto; }
   .eyebrow-label {
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -142,19 +142,20 @@
   }
   h1.page-title { font-size: 2.4rem; color: var(--navy); margin-bottom: 30px; }
 
-  /* --- Cabecera: foto a la izquierda, texto a la derecha --- */
+  /* --- Cabecera: foto grande a la izquierda, texto a la derecha --- */
   .about-hero {
     display: flex;
     align-items: center;
-    gap: 48px;
+    gap: 56px;
     margin-bottom: 20px;
   }
   .photo-placeholder {
-    flex: 0 0 280px;
-    width: 280px;
-    aspect-ratio: 4/5;
-    border-radius: 10px;
+    flex: 1 1 420px;
+    max-width: 460px;
+    aspect-ratio: 3/4;
+    border-radius: 14px;
     overflow: hidden;
+    box-shadow: 0 24px 50px rgba(41,44,47,0.16);
   }
   .photo-placeholder img {
     width: 100%;
@@ -162,12 +163,12 @@
     object-fit: cover;
     display: block;
   }
-  .about-hero-text { flex: 1 1 auto; }
-  p.intro { max-width: 560px; color: #4d5459; font-size: 1.02rem; margin: 0; }
+  .about-hero-text { flex: 1 1 360px; }
+  p.intro { max-width: 480px; color: #4d5459; font-size: 1.02rem; margin: 0; }
 
   @media (max-width: 800px) {
-    .about-hero { flex-direction: column; align-items: flex-start; }
-    .photo-placeholder { flex: 0 0 auto; }
+    .about-hero { flex-direction: column; align-items: stretch; }
+    .photo-placeholder { flex: none; width: 100%; max-width: 100%; }
     p.intro { max-width: none; }
   }
 
