@@ -153,15 +153,14 @@
     flex: 0 0 280px;
     width: 280px;
     aspect-ratio: 4/5;
-    background-color: var(--sand);
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #6b6259;
-    font-size: 0.85rem;
-    text-align: center;
-    padding: 20px;
+    overflow: hidden;
+  }
+  .photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
   .about-hero-text { flex: 1 1 auto; }
   p.intro { max-width: 560px; color: #4d5459; font-size: 1.02rem; margin: 0; }
@@ -302,7 +301,7 @@
     <h1 class="page-title">Hola, soy Ana Esperanza Lagares.</h1>
 
     <div class="about-hero" data-animate>
-      <div class="photo-placeholder">[ espacio para fotografía profesional ]</div>
+      <div class="photo-placeholder"><img src="assets/DSC_0304.JPG" alt="Ana Esperanza Lagares, psicóloga y neuropsicóloga"></div>
       <div class="about-hero-text">
         <p class="intro">Psicóloga General Sanitaria y Neuropsicóloga, colegiada por el Colegio Oficial de Psicología de Andalucía Occidental. Me apasiona entender cómo funciona la mente y acompañar a cada persona desde el respeto, la evidencia y la cercanía. Esto es, en pocas palabras, mi recorrido hasta aquí:</p>
       </div>
