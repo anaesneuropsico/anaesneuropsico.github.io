@@ -176,7 +176,23 @@
   [data-animate].visible { opacity: 1; transform: translateY(0) scale(1); }
 
   @media (max-width: 800px) {
-    nav ul { display: none; }
+    nav ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      background-color: var(--cream);
+      padding: 10px 40px 24px;
+      box-shadow: 0 12px 24px rgba(41,44,47,0.12);
+    }
+    nav ul.nav-open { display: flex; }
+    nav ul li { width: 100%; padding: 12px 0; border-bottom: 1px solid rgba(220,205,189,0.6); }
+    nav ul li:last-child { border-bottom: none; padding-top: 16px; }
+    nav .cta-nav { display: inline-block; }
     .menu-toggle { display: block; }
     h1.page-title { font-size: 1.8rem; }
     .area-block { padding: 28px; }
@@ -300,6 +316,17 @@
   }
   window.addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
+
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navList = document.querySelector('nav ul');
+  if (menuToggle && navList) {
+    menuToggle.addEventListener('click', () => {
+      navList.classList.toggle('nav-open');
+    });
+    navList.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navList.classList.remove('nav-open'));
+    });
+  }
 </script>
 
 </body>
