@@ -7,14 +7,14 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #5D63AD;        /* azul principal */
-    --light-blue: #B4B8E6;  /* tono claro del azul principal (manchas de fondo) */
-    --terracota: #FFB23C;   /* acento ámbar */
-    --accent-deep: #FFB23C; /* ámbar puro también en textos (para volver al ámbar oscuro: #AD6200) */
-    --on-primary: #EEF0FB;  /* texto claro sobre fondo azul principal */
-    --cream: #FFFFFF;       /* fondo base (blanco) */
-    --sand: #E6E7F3;        /* banda newsletter: tinte lavanda del azul principal */
-    --charcoal: #2D2F45;
+    --navy: #164870;        /* azul principal */
+    --light-blue: #9DB7CE;  /* tono claro del azul principal (manchas de fondo) */
+    --terracota: #C47C5A;   /* acento terracota */
+    --accent-deep: #C47C5A; /* terracota también en textos */
+    --on-primary: #E8EEF4;  /* texto claro sobre fondo azul principal */
+    --cream: #FFFEFC;       /* fondo base */
+    --sand: #E8EDF2;        /* banda newsletter: tinte del azul principal */
+    --charcoal: #1B2B3A;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html {
@@ -79,7 +79,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(255,255,255,0.75);
+    background-color: rgba(255,254,252,0.75);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding: 18px 40px;
@@ -131,7 +131,7 @@
   }
   nav .cta-nav:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(93,99,173,0.25);
+    box-shadow: 0 8px 20px rgba(22,72,112,0.25);
   }
   .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--navy); }
 
@@ -172,9 +172,9 @@
     background: linear-gradient(90deg,
       var(--cream) 0%,
       var(--cream) 22%,
-      rgba(255,255,255,0.85) 32%,
-      rgba(255,255,255,0.4) 44%,
-      rgba(255,255,255,0) 56%
+      rgba(255,254,252,0.85) 32%,
+      rgba(255,254,252,0.4) 44%,
+      rgba(255,254,252,0) 56%
     );
   }
   .hero-text {
@@ -193,7 +193,7 @@
   }
   .hero-text h1 { font-size: 2.6rem; color: var(--navy); line-height: 1.25; margin-bottom: 20px; }
   .hero-text h1 .accent { color: var(--accent-deep); }
-  .hero-text p.desc { font-size: 1.05rem; color: #4F5270; max-width: 420px; margin-bottom: 30px; }
+  .hero-text p.desc { font-size: 1.05rem; color: #4A5F73; max-width: 420px; margin-bottom: 30px; }
   .btn-primary {
     display: inline-block;
     background-color: var(--navy);
@@ -206,7 +206,7 @@
   }
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(93,99,173,0.25);
+    box-shadow: 0 8px 20px rgba(22,72,112,0.25);
   }
 
   section {
@@ -226,13 +226,13 @@
 
   .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
   .servicio-card {
-    background-color: rgba(255,255,255,0.55);
+    background-color: rgba(255,254,252,0.55);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(93,99,173,0.18);
+    border: 1px solid rgba(22,72,112,0.18);
     border-radius: 12px;
     padding: 32px;
-    box-shadow: 0 10px 30px rgba(93,99,173,0.08);
+    box-shadow: 0 10px 30px rgba(22,72,112,0.08);
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.35s ease;
   }
   .servicio-card:hover {
@@ -241,7 +241,7 @@
     border-color: var(--terracota);
   }
   .servicio-card h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 10px; }
-  .servicio-card p { font-size: 0.92rem; color: #5A5D7A; margin-bottom: 18px; }
+  .servicio-card p { font-size: 0.92rem; color: #55697C; margin-bottom: 18px; }
   .link-arrow { color: var(--accent-deep); font-weight: 600; font-size: 0.88rem; position: relative; }
   .link-arrow::after {
     content: "";
@@ -264,7 +264,7 @@
     color: #fff;
     border-radius: 28px;
     padding: 60px 50px;
-    box-shadow: 0 24px 50px rgba(93,99,173,0.28);
+    box-shadow: 0 24px 50px rgba(22,72,112,0.28);
   }
   .recursos-section .eyebrow-label { color: var(--on-primary); }
   .recursos-section .section-title { color: #fff; }
@@ -291,10 +291,10 @@
     border-left: 3px solid var(--terracota);
     padding: 30px;
     border-radius: 6px;
-    box-shadow: 0 10px 30px rgba(93,99,173,0.10);
+    box-shadow: 0 10px 30px rgba(22,72,112,0.10);
     max-width: 600px;
     font-style: italic;
-    color: #4F5270;
+    color: #4A5F73;
     margin-bottom: 20px;
   }
   .testimonio span { display: block; margin-top: 14px; font-style: normal; font-size: 0.85rem; color: var(--navy); font-weight: 600; }
@@ -323,9 +323,9 @@
   }
   .newsletter-form button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(93,99,173,0.25);
+    box-shadow: 0 8px 20px rgba(22,72,112,0.25);
   }
-  .newsletter-note { font-size: 0.75rem; color: #6B6E88; margin-top: 14px; }
+  .newsletter-note { font-size: 0.75rem; color: #6B7C8C; margin-top: 14px; }
 
   .contacto-preview { text-align: center; padding: 90px 40px; }
   .contacto-preview .section-inner {
@@ -337,13 +337,13 @@
     color: #fff;
     border-radius: 28px;
     padding: 60px 50px;
-    box-shadow: 0 24px 50px rgba(93,99,173,0.28);
+    box-shadow: 0 24px 50px rgba(22,72,112,0.28);
   }
   .contacto-preview h2 { color: #fff; margin-bottom: 16px; }
   .contacto-preview p { color: var(--on-primary); margin-bottom: 26px; }
   .contacto-preview .btn-primary { background-color: var(--terracota); color: var(--charcoal); }
 
-  footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #6B6E88; }
+  footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #6B7C8C; }
 
   [data-animate] {
     opacity: 0;
@@ -370,8 +370,8 @@
     .hero-bg img { object-position: 62% 30%; }
     .hero-bg-overlay {
       background: linear-gradient(180deg,
-        rgba(255,255,255,0.55) 0%,
-        rgba(255,255,255,0.92) 55%,
+        rgba(255,254,252,0.55) 0%,
+        rgba(255,254,252,0.92) 55%,
         var(--cream) 78%
       );
     }
@@ -389,7 +389,7 @@
       box-shadow: 0 12px 24px rgba(41,44,47,0.12);
     }
     nav ul.nav-open { display: flex; }
-    nav ul li { width: 100%; padding: 12px 0; border-bottom: 1px solid rgba(93,99,173,0.18); }
+    nav ul li { width: 100%; padding: 12px 0; border-bottom: 1px solid rgba(22,72,112,0.18); }
     nav ul li:last-child { border-bottom: none; padding-top: 16px; }
     nav .cta-nav { display: inline-block; }
     .menu-toggle { display: block; }
@@ -412,13 +412,13 @@
 <nav>
   <a href="index.html" class="logo">
     <svg width="26" height="20" viewBox="0 0 60 46" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="14" cy="20" r="7" fill="#5D63AD"/>
-      <path d="M11 15 C7 10, 5 8, 2 4" stroke="#5D63AD" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-      <path d="M9 22 C4 21, 1 21, -3 22" stroke="#5D63AD" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-      <path d="M20 20 C28 25, 34 27, 42 27" stroke="#5D63AD" stroke-width="2" fill="none" stroke-linecap="round"/>
-      <circle cx="30" cy="26" r="3.2" fill="#FFB23C"/>
-      <circle cx="38" cy="27" r="3.2" fill="#FFB23C"/>
-      <path d="M42 27 C48 24, 52 23, 58 20" stroke="#5D63AD" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <circle cx="14" cy="20" r="7" fill="#164870"/>
+      <path d="M11 15 C7 10, 5 8, 2 4" stroke="#164870" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M9 22 C4 21, 1 21, -3 22" stroke="#164870" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M20 20 C28 25, 34 27, 42 27" stroke="#164870" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <circle cx="30" cy="26" r="3.2" fill="#C47C5A"/>
+      <circle cx="38" cy="27" r="3.2" fill="#C47C5A"/>
+      <path d="M42 27 C48 24, 52 23, 58 20" stroke="#164870" stroke-width="1.4" fill="none" stroke-linecap="round"/>
     </svg>
     AEL
   </a>
@@ -504,7 +504,7 @@
   <div class="section-inner">
     <p class="eyebrow-label">Newsletter</p>
     <h2 class="section-title" style="margin-bottom: 10px;">Una pequeña dosis de neuropsicología.</h2>
-    <p style="color: #5A5D7A;">Un artículo. Un recurso. Una idea para llevarte contigo.</p>
+    <p style="color: #55697C;">Un artículo. Un recurso. Una idea para llevarte contigo.</p>
     <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Formulario pendiente de conectar a un servicio de newsletter (ej. Mailchimp).');">
       <input type="email" placeholder="Tu correo electrónico" required>
       <button type="submit">Quiero recibirlo</button>
